@@ -107,8 +107,8 @@ export default function RootLayout({
         {/* <SmoothScroll>
           <Loader />
           <Header /> */}
-           <ScrollReset />
-          <main>{children}</main>
+        <ScrollReset />
+        <main>{children}</main>
         {/* </SmoothScroll> */}
       </body>
     </html>

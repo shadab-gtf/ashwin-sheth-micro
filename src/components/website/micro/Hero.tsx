@@ -17,7 +17,7 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-fill object-bottom"
+          className="w-full h-full object-fill object-center"
         />
         {/* GRADIENT OVERLAY */}
         <div
