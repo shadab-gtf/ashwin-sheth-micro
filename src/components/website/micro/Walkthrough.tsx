@@ -99,7 +99,7 @@ export default function Walkthrough() {
             <div
                 ref={videoContainerRef}
                 data-direction="bottom"
-                className={`reveal-text relative h-[90vh] w-full mx-auto aspect-video md:aspect-[21/9] overflow-hidden shadow-2xl group ${isComingSoon ? 'bg-[#1B4485]/10 cursor-not-allowed' : 'bg-black cursor-pointer'
+                className={`reveal-text relative h-auto md:h-[90vh] w-full mx-auto aspect-video md:aspect-[21/9] overflow-hidden shadow-2xl group ${isComingSoon ? 'bg-[#1B4485]/10 cursor-not-allowed' : 'bg-black cursor-pointer'
                     }`}
                 onClick={() => {
                     if (!isComingSoon) {

@@ -22,12 +22,12 @@ const Overview = () => {
 
   return (
     <section className='py-[50px] md:py-[100px] bg-[#FEF7F0]'>
-      <h2 data-direction="bottom" className="reveal-text w-full max-w-[800px] mx-auto  text-[32px] leading-[50px] font-medium  tracking-[1px] capitalize text-[#F0801B] text-center">
+      <h2 data-direction="bottom" className="reveal-text w-full max-w-[800px] mx-auto  text-[24px] md:text-[32px] leading-[36px] md:leading-[50px] font-medium  tracking-[1px] capitalize text-[#F0801B] text-center">
         Home to India’s Most Iconic Residential Lifestyle Experience
       </h2>
-      <div className='px-[7%] grid grid-cols-12 md:gap-[100px] mt-[50px]'>
-        <div className="md:col-span-1"></div> { /* removed ref section */}
-        <div className='col-span-12 md:col-span-6'>
+      <div className='px-[7%] grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-[100px] mt-[30px] md:mt-[50px]'>
+        <div className="hidden md:block md:col-span-1"></div> { /* removed ref section */}
+        <div className='col-span-1 md:col-span-6 order-2 md:order-1'>
           <div data-direction="left" className='reveal-img flex flex-col items-start justify-center h-full'>
 
             {/* <h2 className="overview-animate w-full text-[32px] leading-[50px] font-medium mb-3 tracking-[1px] capitalize text-[#F0801B] text-center">
@@ -39,7 +39,7 @@ const Overview = () => {
 
 
                   {/* Description */}
-                  <p className="text-lg leading-relaxed ">
+                  <p className="text-base md:text-lg leading-relaxed ">
                     Spread across{" "}
                     <span className="font-semibold ">2.02 acres of land</span>, Edmont
                     is carved to perfection for the elites of the society. Facilitated
@@ -70,13 +70,13 @@ const Overview = () => {
               </div>
             </div>
 
-            <button onClick={() => setOpen(true)} className="mt-10 text-[18px] pb-[5px] font-medium tracking-[1px] border-b border-[#0E4194] uppercase text-[#0E4194] text-left block w-fit">
+            <button onClick={() => setOpen(true)} className="mt-6 md:mt-10 text-base md:text-[18px] pb-[5px] font-medium tracking-[1px] border-b border-[#0E4194] uppercase text-[#0E4194] text-left block w-fit">
               Download Brochure
             </button>
           </div>
         </div>
-        <div className='col-span-12 md:col-span-5'>
-          <img data-direction="bottom" src="/assets/images/micro/overview.jpg" alt="overview" className='h-[500px] w-full object-contain' />
+        <div className='col-span-1 md:col-span-5 order-1 md:order-2 mb-8 md:mb-0'>
+          <img data-direction="bottom" src="/assets/images/micro/overview.jpg" alt="overview" className='h-[300px] md:h-[500px] w-full object-contain' />
         </div>
 
       </div>

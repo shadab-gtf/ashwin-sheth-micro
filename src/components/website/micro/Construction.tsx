@@ -38,7 +38,7 @@ const constructionVideos = {
 
 type Year = keyof typeof constructionVideos
 
-const years: Year[] = [2026,2025, 2024]
+const years: Year[] = [2026, 2025, 2024]
 
 /* ---------------------------------- */
 /* COMPONENT */
@@ -55,9 +55,10 @@ const Construction = () => {
     <section className="pb-[100px] bg-[#FEF7F0]">
 
       {/* Heading */}
+      {/* Heading */}
       <h2
         data-direction="bottom"
-        className="reveal-text text-[32px] leading-[50px] tracking-[1px] md:text-4xl font-medium text-[#E37D24] mb-8 text-center"
+        className="reveal-text text-2xl md:text-4xl leading-[36px] md:leading-[50px] tracking-[1px] font-medium text-[#E37D24] mb-6 md:mb-8 text-center"
       >
         Construction Video
       </h2>
@@ -91,7 +92,7 @@ const Construction = () => {
             onClick={() => swiperRef.current?.slidePrev()}
             className="absolute -left-16 top-1/2 -translate-y-1/2
                  w-12 h-12 rounded-full bg-white shadow-md
-                 text-[#1B4485] flex items-center justify-center z-10"
+                 text-[#1B4485] hidden md:flex items-center justify-center z-10"
           >
             <HiOutlineChevronLeft size={24} />
           </button>
@@ -99,43 +100,43 @@ const Construction = () => {
 
         {/* SWIPER (FIXED WIDTH, CENTERED) */}
         <Swiper
-  slidesPerView={1}
-  spaceBetween={20}
-  onSwiper={(swiper) => (swiperRef.current = swiper)}
->
-  {videos.length === 0 ? (
-    <SwiperSlide>
-      <div className="h-[400px] bg-white max-w-[700px] mx-auto flex flex-col items-center justify-center text-center px-4">
-        <p className="text-[#1B4485] tracking-[0.3em] text-sm md:text-base font-semibold uppercase">
-          Coming Soon
-        </p>
-      </div>
-    </SwiperSlide>
-  ) : (
-    videos.map((video) => (
-      <SwiperSlide key={video.id}>
-        <div
-          data-direction="bottom"
-          className="reveal-text relative h-[400px] max-w-[700px] mx-auto cursor-pointer overflow-hidden shadow-xl"
-          onClick={() => setSelectedVideo(video)}
+          slidesPerView={1}
+          spaceBetween={20}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
-          <video
-            src={video.src}
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
+          {videos.length === 0 ? (
+            <SwiperSlide>
+              <div className="h-[250px] md:h-[400px] bg-white max-w-[700px] mx-auto flex flex-col items-center justify-center text-center px-4">
+                <p className="text-[#1B4485] tracking-[0.3em] text-sm md:text-base font-semibold uppercase">
+                  Coming Soon
+                </p>
+              </div>
+            </SwiperSlide>
+          ) : (
+            videos.map((video) => (
+              <SwiperSlide key={video.id}>
+                <div
+                  data-direction="bottom"
+                  className="reveal-text relative h-[250px] md:h-[400px] max-w-[700px] mx-auto cursor-pointer overflow-hidden shadow-xl"
+                  onClick={() => setSelectedVideo(video)}
+                >
+                  <video
+                    src={video.src}
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
 
-          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-            <div className="w-[70px] h-[70px] rounded-full bg-white/90 text-[#1B4485] flex items-center justify-center">
-              <FaPlay className="ml-[3px]" />
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-    ))
-  )}
-</Swiper>
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <div className="w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full bg-white/90 text-[#1B4485] flex items-center justify-center">
+                      <FaPlay className="ml-[3px]" />
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))
+          )}
+        </Swiper>
 
         {/* RIGHT ARROW */}
         {videos.length > 1 && (
@@ -143,7 +144,7 @@ const Construction = () => {
             onClick={() => swiperRef.current?.slideNext()}
             className="absolute -right-16 top-1/2 -translate-y-1/2
                  w-12 h-12 rounded-full bg-white shadow-md
-                 text-[#1B4485] flex items-center justify-center z-10"
+                 text-[#1B4485] hidden md:flex items-center justify-center z-10"
           >
             <HiOutlineChevronRight size={24} />
           </button>

@@ -141,13 +141,13 @@ const LocationMap = () => {
 
         <h2
           data-direction="bottom"
-          className="reveal-text text-center text-[32px] leading-[50px] tracking-[1px] font-medium text-[#E37D24] mb-12"
+          className="reveal-text text-center text-[24px] md:text-[32px] leading-[36px] md:leading-[50px] tracking-[1px] font-medium text-[#E37D24] mb-8 md:mb-12"
         >
           Step Into Your Exclusive Haven
         </h2>
 
         {/* ================= TABS ================= */}
-        <div data-direction="bottom" className="reveal-text flex justify-center gap-6 mb-16">
+        <div data-direction="bottom" className="reveal-text flex flex-col md:flex-row justify-center gap-4 md:gap-6 mb-8 md:mb-16">
           {LOCATION_DATA.map(tab => (
             <button
               key={tab.key}
@@ -168,18 +168,18 @@ const LocationMap = () => {
         </div>
 
         {/* ================= SWIPER ================= */}
-        <div data-direction="bottom" className="reveal-text relative max-w-[800px] mx-auto mb-[50px]">
+        <div data-direction="bottom" className="reveal-text relative max-w-[800px] mx-auto mb-[30px] md:mb-[50px]">
 
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute left-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] flex items-center justify-center"
+            className="absolute left-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] hidden md:flex items-center justify-center"
           >
             <GoArrowLeft size={24} />
           </button>
 
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="absolute right-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] flex items-center justify-center"
+            className="absolute right-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] hidden md:flex items-center justify-center"
           >
             <GoArrowRight size={24} />
           </button>
@@ -200,7 +200,7 @@ const LocationMap = () => {
                   onClick={() =>
                     setOpenKey(openKey === item.key ? null : item.key)
                   }
-                  className="flex items-center justify-center gap-2 px-6 cursor-pointer"
+                  className="flex items-center text-nowrap justify-center gap-2 px-6 cursor-pointer"
                 >
                   <img src={item.image} className="h-[30px]" />
                   <p className="text-[#0E4194]">{item.name}</p>
@@ -215,9 +215,9 @@ const LocationMap = () => {
         </div>
 
         {/* ================= MAP + LIST ================= */}
-        <div className="w-full relative">
+        <div className="w-full relative flex flex-col md:block">
           {activeDropdown && (
-            <div className="bg-white p-[20px] w-[300px] flex flex-col gap-[20px] absolute top-0 left-[25%] z-10">
+            <div className="bg-white p-5 md:p-[20px] w-full md:w-[300px] flex flex-col gap-4 md:gap-[20px] relative md:absolute top-0 left-0 md:left-[25%] z-10 mb-4 md:mb-0">
               {activeDropdown.places.map((item, index) => (
                 <div
                   key={index}
@@ -229,7 +229,7 @@ const LocationMap = () => {
               ))}
             </div>
           )}
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.716561316398!2d72.84200073488769!3d19.207578299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6d9129510a1%3A0xae98e7bd01d78422!2sSheth%20Edmont%20Kandivali!5e0!3m2!1sen!2sin!4v1769774277092!5m2!1sen!2sin" width="600" height="500" style={{
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.716561316398!2d72.84200073488769!3d19.207578299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6d9129510a1%3A0xae98e7bd01d78422!2sSheth%20Edmont%20Kandivali!5e0!3m2!1sen!2sin!4v1769774277092!5m2!1sen!2sin" className="h-[300px] md:h-[500px]" style={{
             border: 0,
             width: "100%"
           }} loading="lazy" ></iframe>

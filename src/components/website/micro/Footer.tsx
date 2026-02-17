@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="flex items-center gap-6">
                         {/* QR Code Placeholder */}
                         <div className="bg-white p-2 border border-gray-200">
-                           <img src="/images/micro/qr.png" alt="qr" className='w-[150px] h-[150px] object-contain'/>
+                            <img src="/images/micro/qr.png" alt="qr" className='w-[150px] h-[150px] object-contain' />
                         </div>
                         <div className="text-xs text-gray-500 uppercase tracking-widest ">
                             MahaRERA No. P51800053546
@@ -22,7 +22,7 @@ export default function Footer() {
                     {/* Partner Logo */}
                     <div className="flex flex-col items-center">
                         <div>
-                            <img src="/images/micro/logo.png" alt="logo" className='w-[150px] h-[150px] object-contain'/>
+                            <img src="/images/micro/logo.png" alt="logo" className='w-[150px] h-[150px] object-contain' />
                         </div>
                     </div>
                 </div>
