@@ -7,11 +7,15 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { HiOutlineArrowLongLeft, HiOutlineArrowLongRight } from "react-icons/hi2";
+import { Building2, MoreHorizontal } from "lucide-react";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 interface SlideData {
+  name: string;
   floors: string;
+  size: string;
+  flatNumber: string;
   reraCarpetArea: string;
   balconyArea: string;
   totalArea: string;
@@ -24,13 +28,16 @@ interface TabData {
   slides: SlideData[];
 }
 
-// ─── Mock Data ───────────────────────────────────────────────────────────────
+// ─── Mock Data ───────
 
 const TABS: TabData[] = [
   {
     label: "MASTER PLANS",
     slides: [
       {
+        name: "",
+        flatNumber: "",
+        size: "",
         floors: "5th & 7th",
         reraCarpetArea: "1,850 Sq.Ft.",
         balconyArea: "220 Sq.Ft.",
@@ -38,130 +45,116 @@ const TABS: TabData[] = [
         image:
           "/master.webp"
       },
-      {
-        floors: "12th & 14th",
-        reraCarpetArea: "2,100 Sq.Ft.",
-        balconyArea: "310 Sq.Ft.",
-        totalArea: "2,410 Sq.Ft.",
-        image:
-          "/master.webp"
-      },
-      {
-        floors: "22nd & 24th",
-        reraCarpetArea: "2,560 Sq.Ft.",
-        balconyArea: "390 Sq.Ft.",
-        totalArea: "2,950 Sq.Ft.",
-        image:
-          "/master.webp"
-      },
+
     ],
   },
   {
     label: "FLOOR PLANS",
     slides: [
       {
-        floors: "71st & 73rd",
-        reraCarpetArea: "3,272 Sq.Ft.",
-        balconyArea: "565 Sq.Ft.",
-        totalArea: "3,837 Sq.Ft.",
+        name: "AURELIA",
+        flatNumber: "FLAT NO-3",
+        size: "2 BHK",
+        floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
+        reraCarpetArea: "705 SQ.Ft.",
+        balconyArea: "61 SQ.Ft.",
+        totalArea: "766 SQ.Ft.",
         image:
-          "/floor.png",
+          "/floor/Edmont-Unit-Floor-Plans_page-0005.jpg",
       },
       {
-        floors: "74th & 76th",
-        reraCarpetArea: "3,480 Sq.Ft.",
-        balconyArea: "620 Sq.Ft.",
-        totalArea: "4,100 Sq.Ft.",
+        name: "AURELIA",
+        flatNumber: "FLAT NO-5",
+        size: "2 BHK",
+        floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
+        reraCarpetArea: "708 SQ.Ft.",
+        balconyArea: "61 SQ.Ft.",
+        totalArea: "769 SQ.Ft.",
         image:
-          "/floor.png",
+          "/floor/Edmont-Unit-Floor-Plans_page-0006.jpg",
       },
       {
-        floors: "78th & 80th",
-        reraCarpetArea: "3,710 Sq.Ft.",
-        balconyArea: "680 Sq.Ft.",
-        totalArea: "4,390 Sq.Ft.",
+        name: "AURELIA",
+        flatNumber: "FLAT NO-4",
+        floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
+        size: "2 BHK",
+        reraCarpetArea: "715 SQ.Ft.",
+        balconyArea: "61 SQ.Ft.",
+        totalArea: "776 SQ.Ft.",
         image:
-          "/floor.png",
+          "/floor/Edmont-Unit-Floor-Plans_page-0007.jpg",
+      },
+      {
+        name: "AURELIA",
+        flatNumber: "FLAT NO-2",
+        floors: "2 51",
+        size: "3 BHK",
+        reraCarpetArea: "937 SQ.Ft.",
+        balconyArea: "70 SQ.Ft.",
+        totalArea: "1,007 SQ.Ft.",
+        image:
+          "/floor/Edmont-Unit-Floor-Plans_page-0008.jpg",
+      },
+      {
+        name: "AURELIA",
+        flatNumber: "FLAT NO-1",
+        floors: "10 51",
+        size: "3 BHK",
+        reraCarpetArea: "939 SQ.Ft.",
+        balconyArea: "70 SQ.Ft.",
+        totalArea: "1,009 SQ.Ft.",
+        image:
+          "/floor/Edmont-Unit-Floor-Plans_page-0009.jpg",
+      },
+      {
+        name: "AURELIA",
+        flatNumber: "FLAT NO-7",
+        floors: "10 51",
+        size: "3 BHK",
+        reraCarpetArea: "1133 SQ.Ft.",
+        balconyArea: "85 SQ.Ft.",
+        totalArea: "1,218 SQ.Ft.",
+        image:
+          "/floor/Edmont-Unit-Floor-Plans_page-0010.jpg",
       },
     ],
   },
-  {
-    label: "UNIT PLANS",
-    slides: [
-      {
-        floors: "Penthouse A",
-        reraCarpetArea: "4,500 Sq.Ft.",
-        balconyArea: "900 Sq.Ft.",
-        totalArea: "5,400 Sq.Ft.",
-        image:
-          "/floor.png",
-      },
-      {
-        floors: "Penthouse B",
-        reraCarpetArea: "4,800 Sq.Ft.",
-        balconyArea: "960 Sq.Ft.",
-        totalArea: "5,760 Sq.Ft.",
-        image:
-          "/floor.png",
-      },
-      {
-        floors: "Penthouse C",
-        reraCarpetArea: "5,200 Sq.Ft.",
-        balconyArea: "1,040 Sq.Ft.",
-        totalArea: "6,240 Sq.Ft.",
-        image:
-          "/floor.png",
-      },
-    ],
-  },
+
 ];
 
+function formatOrdinal(num: number) {
+  const j = num % 10,
+    k = num % 100;
 
-function BuildingIcon() {
+  let suffix = "th";
+  if (j === 1 && k !== 11) suffix = "st";
+  else if (j === 2 && k !== 12) suffix = "nd";
+  else if (j === 3 && k !== 13) suffix = "rd";
+
   return (
-    <svg
-      width="28"
-      height="42"
-      viewBox="0 0 28 42"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="flex-shrink-0"
-    >
-      <rect x="6" y="0" width="16" height="42" fill="#222" rx="1" />
-      <rect x="0" y="8" width="28" height="34" fill="#333" rx="1" />
-      <rect x="3" y="11" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="11" y="11" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="19" y="11" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="3" y="20" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="11" y="20" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="19" y="20" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="3" y="29" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="11" y="29" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="19" y="29" width="5" height="5" fill="white" opacity="0.4" />
-      <rect x="10" y="34" width="8" height="8" fill="white" opacity="0.6" />
-    </svg>
+    <>
+      {num}
+      <sup className="text-[10px] ml-[1px]">{suffix}</sup>
+    </>
   );
 }
 
-// function ArrowLeft() {
-//   return (
-//     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-//       <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-//     </svg>
-//   );
-// }
+// Convert floors string → array of numbers
+function parseFloors(floors: string): number[] {
+  return floors
+    .split(/[,&\s]+/)
+    .map(f => parseInt(f))
+    .filter(Boolean);
+}
 
-// function ArrowRight() {
-//   return (
-//     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-//       <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-//     </svg>
-//   );
-// }
 
-// ─── Slide Card ───────────────────────────────────────────────────────────────
+function SlideCard({ slide }: { slide: SlideData; index: number; total: number }) {
+  const [showTooltip, setShowTooltip] = useState(false);
 
-function SlideCard({ slide, index, total }: { slide: SlideData; index: number; total: number }) {
+  const floorsArray = parseFloors(slide.floors);
+
+  const visibleFloors = floorsArray.slice(0, 4);
+  const hiddenFloors = floorsArray.slice(4);
   return (
     <div className="flex flex-col lg:flex-row w-full h-full min-h-[420px] lg:min-h-[520px]">
       {/* Left – info panel 35% */}
@@ -176,13 +169,60 @@ function SlideCard({ slide, index, total }: { slide: SlideData; index: number; t
         {/* Floors */}
         <div>
           <div className="flex items-center gap-3 mb-10 lg:mb-14">
-            <span className="text-[11px] lg:text-xs tracking-[0.2em] font-semibold text-[#1a1a1a] uppercase">
-              FLOORS
+            <span className="text-[15px] text-[#1a1a1a] lg:text-[17px] font-medium tracking-[0.2em] font-semibold uppercase">
+              {slide.name}
             </span>
-            <BuildingIcon />
-            <span className="text-[15px] lg:text-[17px] font-medium text-[#1a1a1a]">
+            <Building2 size={32} color="black" />
+            <span className="text-[15px] text-[#1a1a1a] lg:text-[17px] font-medium flex gap-2 flex-wrap">
+
+              {visibleFloors.map((floor, i) => (
+                <span key={i}>{formatOrdinal(floor)}</span>
+              ))}
+            </span>
+
+            {/* <span className="text-[15px] lg:text-[17px] font-medium text-[#1a1a1a]">
               {slide.floors}
-            </span>
+            </span> */}
+            {/* <MoreHorizontal size={30} color="black" cursor="pointer" /> */}
+            {hiddenFloors.length > 0 && (
+              <div
+                className="relative"
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+              >
+
+                <MoreHorizontal
+                  size={28} color="black"
+                  className="cursor-pointer"
+                  onClick={() => setShowTooltip(prev => !prev)}
+                />
+
+                {/* Tooltip */}
+                {showTooltip && (
+                  <div className="absolute top-8 left-0 z-50 bg-white text-[#1a1a1a] shadow-xl border rounded-lg p-3 min-w-[120px]">
+
+                    <div className="flex flex-wrap gap-2">
+
+                      {hiddenFloors.map((floor, i) => (
+                        <span key={i}>
+                          {formatOrdinal(floor)}
+                        </span>
+                      ))}
+
+                    </div>
+
+                  </div>
+                )}
+
+              </div>
+            )}
+
+            {showTooltip && (
+              <span className="text-xs text-[#1a1a1a] font-medium flex gap-2 flex-wrap">
+                FLOORS
+              </span>
+            )}
+
           </div>
 
           {/* Stats */}
@@ -305,7 +345,7 @@ export default function FloorPlans() {
                     relative px-8 sm:px-12 lg:px-16 xl:px-20
                     pb-4 pt-2
                     text-[10px] sm:text-[11px] lg:text-xs
-                    tracking-[0.22em] font-semibold
+                    font-semibold
                     transition-colors duration-200
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6b2737] focus-visible:ring-offset-2
                     ${isActive
@@ -350,9 +390,7 @@ export default function FloorPlans() {
             ))}
           </Swiper>
 
-          {/* ── Navigation row (bottom-right) ── */}
-
-
+          {/* ── Navigation Buttons ── */}
           <div
             className="
     flex items-center justify-end gap-16
@@ -370,7 +408,6 @@ export default function FloorPlans() {
       text-[18px]
       font-serif
       italic
-      tracking-wide
       transition-all duration-300
       hover:opacity-60
       disabled:opacity-30 disabled:cursor-not-allowed
@@ -391,7 +428,6 @@ export default function FloorPlans() {
       text-[18px]
       font-serif
       italic
-      tracking-wide
       transition-all duration-300
       hover:opacity-60
       disabled:opacity-30 disabled:cursor-not-allowed
@@ -402,7 +438,6 @@ export default function FloorPlans() {
             </button>
 
           </div>
-          {/* <div className=" flex items-center justify-end gap-6 px-6 pb-5 pt-3 bg-white " > <button onClick={() => swiperRef.current?.slidePrev()} disabled={currentSlide === 0} aria-label="Previous slide" className=" flex items-center gap-1.5 text-[12px] tracking-[0.14em] font-semibold text-[#1a1a1a] transition-opacity duration-150 disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-60 " > <ArrowLeft /> <span>Prev</span> </button> <div className="flex items-center gap-1.5"> {currentTabData.slides.map((_, i) => (<button key={i} onClick={() => swiperRef.current?.slideTo(i)} aria-label={Go to slide ${i + 1}} className={w - 1.5 h-1.5 rounded-full transition-all duration-200 ${i === currentSlide ? "bg-[#E37D24] scale-125" : "bg-[#ccc] hover:bg-[#999]"} } /> ))} </div> <button onClick={() => swiperRef.current?.slideNext()} disabled={currentSlide === total - 1} aria-label="Next slide" className=" flex items-center gap-1.5 text-[12px] tracking-[0.14em] font-semibold text-[#1a1a1a] transition-opacity duration-150 disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-60 " > <span>Next</span> <ArrowRight /> </button> </div> */}
         </div>
       </div>
     </section>
