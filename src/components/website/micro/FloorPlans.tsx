@@ -41,9 +41,33 @@ const TABS: TabData[] = [
       {
         index: 0,
         name: "AURELIA",
+        flatNumber: "FLAT NO-1",
+        size: "3 BHK-SMART",
+        floors: "10 51",
+        reraCarpetArea: "939 SQ.Ft.",
+        balconyArea: "70 SQ.Ft.",
+        totalArea: "1009 SQ.Ft.",
+        image:
+          "/floor/Edmont-Unit-Floor-Plans_page-0009.jpg",
+      },
+      {
+        index: 1,
+        name: "AURELIA",
+        flatNumber: "FLAT NO-2",
+        size: "3 BHK-SMART",
+        floors: "2 51",
+        reraCarpetArea: "937 SQ.Ft.",
+        balconyArea: "70 SQ.Ft.",
+        totalArea: "1007 SQ.Ft.",
+        image:
+          "/floor/Edmont-Unit-Floor-Plans_page-0008.jpg",
+      },
+      {
+        index: 2,
+        name: "AURELIA",
         flatNumber: "FLAT NO-3",
-        size: "2 BHK",
         floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
+        size: "2 BHK",
         reraCarpetArea: "705 SQ.Ft.",
         balconyArea: "61 SQ.Ft.",
         totalArea: "766 SQ.Ft.",
@@ -51,19 +75,7 @@ const TABS: TabData[] = [
           "/floor/Edmont-Unit-Floor-Plans_page-0005.jpg",
       },
       {
-        index: 1,
-        name: "AURELIA",
-        flatNumber: "FLAT NO-5",
-        size: "2 BHK",
-        floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
-        reraCarpetArea: "708 SQ.Ft.",
-        balconyArea: "61 SQ.Ft.",
-        totalArea: "769 SQ.Ft.",
-        image:
-          "/floor/Edmont-Unit-Floor-Plans_page-0006.jpg",
-      },
-      {
-        index: 2,
+        index: 3,
         name: "AURELIA",
         flatNumber: "FLAT NO-4",
         floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
@@ -75,28 +87,16 @@ const TABS: TabData[] = [
           "/floor/Edmont-Unit-Floor-Plans_page-0007.jpg",
       },
       {
-        index: 3,
-        name: "AURELIA",
-        flatNumber: "FLAT NO-2",
-        floors: "2 51",
-        size: "3 BHK",
-        reraCarpetArea: "937 SQ.Ft.",
-        balconyArea: "70 SQ.Ft.",
-        totalArea: "1,007 SQ.Ft.",
-        image:
-          "/floor/Edmont-Unit-Floor-Plans_page-0008.jpg",
-      },
-      {
         index: 4,
         name: "AURELIA",
-        flatNumber: "FLAT NO-1",
-        floors: "10 51",
-        size: "3 BHK",
-        reraCarpetArea: "939 SQ.Ft.",
-        balconyArea: "70 SQ.Ft.",
-        totalArea: "1,009 SQ.Ft.",
+        flatNumber: "FLAT NO-5",
+        floors: "3 6 8 13 15 20 22 27 29 34 36 41 43 48 50 51",
+        size: "2 BHK",
+        reraCarpetArea: "708 SQ.Ft.",
+        balconyArea: "61 SQ.Ft.",
+        totalArea: "769 SQ.Ft.",
         image:
-          "/floor/Edmont-Unit-Floor-Plans_page-0009.jpg",
+          "/floor/Edmont-Unit-Floor-Plans_page-0006.jpg",
       },
       {
         index: 5,
@@ -265,7 +265,7 @@ function SlideCard({ slide, onImageClick, onViewDetailsClick }: { slide: SlideDa
             <button
               onClick={onViewDetailsClick}
               className="
-           px-6 md:px-10 py-3 rounded border text-sm md:text-base  uppercase transition-all duration-300 bg-[#1B4485] text-white border-[#1B4485]
+         px-8 py-3 md:py-2 bg-[#1B4485]  text-white font-semibold rounded-md shadow-lg hover:bg-blue-800 transition-all w-full lg:w-auto text-sm md:text-base
             "
             >
               VIEW DETAILS
