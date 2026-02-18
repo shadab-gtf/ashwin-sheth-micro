@@ -7,9 +7,9 @@ import "yet-another-react-lightbox/styles.css";
 import useGsapReveal from '@/hooks/useGsapReveal'
 
 const data = [
-  { src: "/assets/gallery/building-evelation-3-n.png", title: "Building Elevation", alt: "image 1" },
-  { src: "/assets/gallery/building-elevation-2-n.png", title: "Building Elevation", alt: "image 3" },
-  { src: "/assets/gallery/building-elevation-1.png", title: "Building Elevation", alt: "image 2" },
+  { src: "/assets/gallery/building-evelation-3-n.png", title: "Day View", alt: "image 1" },
+  { src: "/assets/gallery/building-elevation-2-n.png", title: "Night View", alt: "image 3" },
+  // { src: "/assets/gallery/building-elevation-1.png", title: "Building Elevation", alt: "image 2" },
   { src: "/assets/gallery/play-park.jpg", title: "Landscape Garden", alt: "image 4" },
   { src: "/assets/gallery/pool.jpg", title: "Swimming Pool", alt: "image 5" },
   { src: "/assets/gallery/living-room.jpg", title: "Living Room", alt: "image 6" },

@@ -172,14 +172,14 @@ const LocationMap = () => {
 
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute left-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] hidden md:flex items-center justify-center"
+            className="absolute opacity-0 left-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] hidden md:flex items-center justify-center"
           >
             <GoArrowLeft size={24} />
           </button>
 
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="absolute right-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] hidden md:flex items-center justify-center"
+            className="absolute opacity-0 right-[-10%] top-[45%] -translate-y-1/2 z-20 w-12 h-12 text-[#0E4194] hidden md:flex items-center justify-center"
           >
             <GoArrowRight size={24} />
           </button>
