@@ -189,8 +189,9 @@ function SlideCard({ slide, onImageClick, onViewDetailsClick }: { slide: SlideDa
               <span className="text-[15px] text-[#1a1a1a] lg:text-[17px] font-medium flex gap-2 flex-wrap">
 
                 {visibleFloors.map((floor, i) => (
-                  <span key={i}>{formatOrdinal(floor)}</span>
+                  <span key={i}>{formatOrdinal(floor)} </span>
                 ))}
+                Floor
               </span>
 
               {/* <span className="text-[15px] lg:text-[17px] font-medium text-[#1a1a1a]">
@@ -229,13 +230,6 @@ function SlideCard({ slide, onImageClick, onViewDetailsClick }: { slide: SlideDa
 
                 </div>
               )}
-
-              {showTooltip && (
-                <span className="text-xs text-[#1a1a1a] font-medium flex gap-2 flex-wrap">
-                  FLOORS
-                </span>
-              )}
-
             </div>
 
             {/* Stats */}
